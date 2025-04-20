@@ -36,7 +36,7 @@ export const Products = ({ limit }: ProductsProps) => {
               key={product.href}
               className="group flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 hover:bg-gray-50 rounded-2xl transition duration-200 pt-4"
             >
-              <Image
+              <img
                 src={product.thumbnail}
                 alt="thumbnail"
                 height="200"

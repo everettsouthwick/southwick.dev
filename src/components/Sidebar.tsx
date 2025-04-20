@@ -106,7 +106,7 @@ export const Navigation = ({
 const SidebarHeader = () => {
   return (
     <div className="flex space-x-2">
-      <Image
+      <img
         src="/everett-southwick.webp"
         alt="Avatar"
         height="40"

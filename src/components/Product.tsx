@@ -28,7 +28,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
         key={product.slug}
         className="relative"
       >
-        <Image
+        <img
           src={activeImage}
           alt="thumbnail"
           height="1000"
@@ -43,7 +43,7 @@ export const SingleProduct = ({ product }: { product: Product }) => {
             onClick={() => setActiveImage(image)}
             key={`image-thumbnail-${idx}`}
           >
-            <Image
+            <img
               src={image}
               alt="product thumbnail"
               height="1000"

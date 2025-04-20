@@ -42,10 +42,8 @@ export default function About() {
             }}
             transition={{ duration: 0.2, delay: index * 0.1 }}
           >
-            <Image
+            <img
               src={image}
-              width={200}
-              height={400}
               alt="about"
               className="rounded-md object-cover transform rotate-3 shadow-xl block w-full h-40 md:h-60 hover:rotate-0 transition duration-200"
             />

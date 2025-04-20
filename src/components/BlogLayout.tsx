@@ -53,7 +53,7 @@ export function BlogLayout({
             </Paragraph>
           </time>
           <div className="w-full mt-4 aspect-w-16 aspect-h-10 bg-gray-100 rounded-lg overflow-hidden xl:aspect-w-16 xl:aspect-h-10 relative">
-            <Image
+            <img
               src={meta.image}
               alt="thumbnail"
               height="800"
