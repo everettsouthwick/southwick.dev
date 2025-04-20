@@ -8,7 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export const SingleProduct = ({ product }: { product: Product }) => {
-  const [activeImage, setActiveImage] = useState<StaticImageData | string>(
+  const [activeImage, setActiveImage] = useState<StaticImageData | undefined>(
     product.thumbnail
   );
   return (

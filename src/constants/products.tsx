@@ -1,21 +1,11 @@
-import watchtowerThumbNail1 from "public/images/watchtower-1.webp"
-import watchtowerThumbNail2 from "public/images/watchtower-2.webp"
-import serenThumbnail1 from "public/images/seren-1.webp"
-import serenThumbnail2 from "public/images/seren-2.webp"
-import amazonAutoReloadThumbnail1 from "public/images/amazon-auto-reload-1.webp"
-import trustedTravelerSchedulerThumbnail1 from "public/images/trusted-traveler-scheduler-1.webp"
-import eraserrThumbnail1 from "public/images/eraserr-1.webp"
-import vxThreadsThumbnail1 from "public/images/vxthreads-1.webp"
-import embetterThumbnail1 from "public/images/embetter-1.webp"
-
 export const products = [
   {
     href: "https://www.jekasoftware.com/watchtower",
     title: "Watchtower",
     description:
       "Advanced access control SaaS designed for modern gated communities, providing HOAs and CDDs with seamless security management and resident empowerment.",
-    thumbnail: watchtowerThumbNail1,
-    images: [watchtowerThumbNail1, watchtowerThumbNail2],
+    thumbnail: "/images/watchtower-1.webp",
+    images: ["/images/watchtower-1.webp", "/images/watchtower-2.webp"],
     stack: [".NET", "Node.js", "React", "C#", "TypeScript", "Azure", "Docker", "iOS", "Android",],
     slug: "watchtower",
     content: (
@@ -37,8 +27,8 @@ export const products = [
     title: "Seren",
     description:
       "AI-powered knowledge management platform that transforms documents into intelligent, searchable resources using Retrieval-Augmented Generation (RAG) technology.",
-    thumbnail: serenThumbnail1,
-    images: [serenThumbnail1, serenThumbnail2],
+    thumbnail: "/images/seren-1.webp",
+    images: ["/images/seren-1.webp", "/images/seren-2.webp"],
     stack: ["Node.js", "Next.js", "TypeScript", "Azure", "Docker", "Kubernetes", "OpenAI"],
     slug: "seren",
     content: (
@@ -60,8 +50,8 @@ export const products = [
     title: "Amazon Auto Reload",
     description:
       "Automates reloading Amazon gift card balances to maximize card rewards.",
-    thumbnail: amazonAutoReloadThumbnail1,
-    images: [amazonAutoReloadThumbnail1],
+    thumbnail: "/images/amazon-auto-reload-1.webp",
+    images: ["/images/amazon-auto-reload-1.webp"],
     stack: ["Node.js", "TypeScript", "Docker", "Selenium"],
     slug: "amazon-auto-reload",
     content: (
@@ -83,8 +73,8 @@ export const products = [
     title: "Trusted Traveler Scheduler",
     description:
       "Automatically fetches and notifies you when new appointment dates are available for the Trusted Traveler Program.",
-    thumbnail: trustedTravelerSchedulerThumbnail1,
-    images: [trustedTravelerSchedulerThumbnail1],
+    thumbnail: "/images/trusted-traveler-scheduler-1.webp",
+    images: ["/images/trusted-traveler-scheduler-1.webp"],
     stack: ["Python", "Docker"],
     slug: "trusted-traveler-scheduler",
     content: (
@@ -106,8 +96,8 @@ export const products = [
     title: "Eraserr",
     description:
       "Keeps Plex servers clean by automatically deleting unwatched or stale media using Radarr, Sonarr, and Overseerr.",
-    thumbnail: eraserrThumbnail1,
-    images: [eraserrThumbnail1],
+    thumbnail: "/images/eraserr-1.webp",
+    images: ["/images/eraserr-1.webp"],
     stack: ["Python", "Docker"],
     slug: "eraserr",
     content: (
@@ -129,8 +119,8 @@ export const products = [
     title: "vxThreads",
     description:
       "A utility tool that enables seamless embedding of threads.net links on Discord and Telegram by simply prepending the URL with vx.",
-    thumbnail: vxThreadsThumbnail1,
-    images: [vxThreadsThumbnail1],
+    thumbnail: "/images/vxthreads-1.webp",
+    images: ["/images/vxthreads-1.webp"],
     stack: ["TypeScript", "Azure", "Cloudflare Workers", "Docker"],
     slug: "vxthreads",
     content: (
@@ -152,8 +142,8 @@ export const products = [
     title: "Embetter",
     description:
       "Replaces social media links with embed-friendly alternatives on Discord for platforms like Instagram, Threads, TikTok, Twitter, and premium editorials.",
-    thumbnail: embetterThumbnail1,
-    images: [embetterThumbnail1],
+    thumbnail: "/images/embetter-1.webp",
+    images: ["/images/embetter-1.webp"],
     stack: ["Node.js", "TypeScript", "Azure", "Docker", "Discord.js"],
     slug: "embetter",
     content: (
