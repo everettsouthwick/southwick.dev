@@ -60,7 +60,6 @@ export const Blogs = ({ blogs }: { blogs: Blog[] }) => {
                 alt="thumbnail"
                 height="200"
                 width="200"
-                objectFit="cover"
                 className="rounded-md object-cover h-40 w-60"
               />
               <div className="flex flex-col col-span-3">
