@@ -1,14 +1,12 @@
 "use client";
 import { Product } from "@/types/products";
-import Image, { StaticImageData } from "next/image";
 import React, { useState } from "react";
 import { Heading } from "./Heading";
 import { Paragraph } from "./Paragraph";
-import Link from "next/link";
 import { motion } from "framer-motion";
 
 export const SingleProduct = ({ product }: { product: Product }) => {
-  const [activeImage, setActiveImage] = useState<StaticImageData | undefined>(
+  const [activeImage, setActiveImage] = useState<string>(
     product.thumbnail
   );
   return (
