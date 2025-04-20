@@ -6,6 +6,7 @@ import amazonAutoReloadThumbnail1 from "public/images/amazon-auto-reload-1.webp"
 import trustedTravelerSchedulerThumbnail1 from "public/images/trusted-traveler-scheduler-1.webp"
 import eraserrThumbnail1 from "public/images/eraserr-1.webp"
 import vxThreadsThumbnail1 from "public/images/vxthreads-1.webp"
+import embetterThumbnail1 from "public/images/embetter-1.webp"
 
 export const products = [
   {
@@ -151,8 +152,8 @@ export const products = [
     title: "Embetter",
     description:
       "Replaces social media links with embed-friendly alternatives on Discord for platforms like Instagram, Threads, TikTok, Twitter, and premium editorials.",
-      thumbnail: eraserrThumbnail1,
-      images: [eraserrThumbnail1],
+    thumbnail: embetterThumbnail1,
+    images: [embetterThumbnail1],
     stack: ["Node.js", "TypeScript", "Azure", "Docker", "Discord.js"],
     slug: "embetter",
     content: (
