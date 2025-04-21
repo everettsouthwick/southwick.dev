@@ -1,4 +1,3 @@
-"use client";
 import { Contact } from "@/components/Contact";
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
