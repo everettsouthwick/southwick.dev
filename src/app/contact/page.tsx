@@ -4,7 +4,6 @@ import { Heading } from "@/components/Heading";
 import { Paragraph } from "@/components/Paragraph";
 import { Metadata } from "next";
 import { IconMail } from "@tabler/icons-react";
-import { useEffect, useState } from "react";
 
 export const metadata: Metadata = {
   title: "Contact | Everett Southwick",
@@ -32,14 +31,8 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const [emailAddress, setEmailAddress] = useState("");
-  
-  useEffect(() => {
-    const username = "everett";
-    const domain = "southwick";
-    const tld = "dev";
-    setEmailAddress(`${username}@${domain}.${tld}`);
-  }, []);
+  // Email address constructed directly without client-side state
+  const emailAddress = "everett@southwick.dev";
   
   return (
     <Container>
@@ -48,16 +41,12 @@ export default function ContactPage() {
       <Paragraph className="mb-6 max-w-xl">
         Thank you for your interest in connecting. Please use the form below to send me a message,
         or reach out directly via{" "}
-        {emailAddress ? (
-          <a 
-            href={`mailto:${emailAddress}`}
-            className="font-medium text-blue-600 hover:underline hover:text-blue-800 transition-colors"
-          >
-            email
-          </a>
-        ) : (
-          <a href="#" className="font-medium text-blue-600 hover:underline hover:text-blue-800 transition-colors">email</a>
-        )}
+        <a 
+          href={`mailto:${emailAddress}`}
+          className="font-medium text-blue-600 hover:underline hover:text-blue-800 transition-colors"
+        >
+          email
+        </a>
         .
       </Paragraph>
       <Contact />
