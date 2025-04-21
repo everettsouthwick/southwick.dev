@@ -106,17 +106,19 @@ export const Navigation = ({
 const SidebarHeader = () => {
   return (
     <div className="flex space-x-2">
-      <img
-        src="/everett-southwick.webp"
-        alt="Avatar"
-        height="40"
-        width="40"
-        className="object-cover object-top rounded-full flex-shrink-0"
+      <a href="/">
+        <img
+          src="/everett-southwick.webp"
+          alt="Avatar"
+          height="40"
+          width="40"
+          className="object-cover object-top rounded-full flex-shrink-0"
       />
       <div className="flex text-sm flex-col">
         <p className="font-bold text-primary">Everett Southwick</p>
-        <p className="font-light text-secondary">Software Engineer</p>
-      </div>
+          <p className="font-light text-secondary">Software Engineer</p>
+        </div>
+      </a>
     </div>
   );
 };
