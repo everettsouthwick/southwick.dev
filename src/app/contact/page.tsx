@@ -1,11 +1,11 @@
+"use client";
 import { Contact } from "@/components/Contact";
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
-import { Highlight } from "@/components/Highlight";
 import { Paragraph } from "@/components/Paragraph";
-import { Products } from "@/components/Products";
 import { Metadata } from "next";
-import Image from "next/image";
+import { IconMail } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 
 export const metadata: Metadata = {
   title: "Contact | Everett Southwick",
@@ -32,14 +32,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Projects() {
+export default function ContactPage() {
+  const [emailAddress, setEmailAddress] = useState("");
+  
+  useEffect(() => {
+    const username = "everett";
+    const domain = "southwick";
+    const tld = "dev";
+    setEmailAddress(`${username}@${domain}.${tld}`);
+  }, []);
+  
   return (
     <Container>
       <span className="text-4xl">✉️</span>
-      <Heading className="font-black mb-2">Contact Me</Heading>
-      <Paragraph className="mb-10 max-w-xl">
-        Reach out to me over email or fill up this contact form. I will get back
-        to you ASAP - I promise.{" "}
+      <Heading className="font-black mb-2">Get in Touch</Heading>
+      <Paragraph className="mb-6 max-w-xl">
+        Thank you for your interest in connecting. Please use the form below to send me a message,
+        or reach out directly via{" "}
+        {emailAddress ? (
+          <a 
+            href={`mailto:${emailAddress}`}
+            className="font-medium text-blue-600 hover:underline hover:text-blue-800 transition-colors"
+          >
+            email
+          </a>
+        ) : (
+          <a href="#" className="font-medium text-blue-600 hover:underline hover:text-blue-800 transition-colors">email</a>
+        )}
+        .
       </Paragraph>
       <Contact />
     </Container>
