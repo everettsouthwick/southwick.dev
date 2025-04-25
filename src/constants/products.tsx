@@ -46,6 +46,29 @@ export const products = [
     ),
   },
   {
+    href: "https://www.goglobalentry.com",
+    title: "Go Global Entry",
+    description:
+      "A modern web application that allows users to fetch and secure Global Entry appointments through an intuitive front-end interface.",
+    thumbnail: "/images/go-global-entry-1.webp",
+    images: ["/images/go-global-entry-1.webp"],
+    stack: [".NET", "Node.js", "Next.js", "React", "C#", "TypeScript", "Azure", "Docker"],
+    slug: "go-global-entry",
+    content: (
+      <div>
+        <p>
+          Go Global Entry is a sophisticated web platform designed to help travelers secure earlier Global Entry appointments through a modern, user-friendly interface. The service continuously monitors the Trusted Traveler Program for new appointment openings, making the often frustrating process of finding available slots seamless and efficient.
+        </p>
+        <p>
+          The application features an intuitive dashboard with location filtering, real-time appointment availability, and instant notifications when earlier slots become available. Users can easily manage their appointment preferences and receive alerts when opportunities matching their criteria appear.
+        </p>
+        <p>
+          Built with a robust tech stack including .NET, Node.js, Next.js, C#, and React, Go Global Entry delivers a responsive and reliable experience. The platform is hosted on Azure with containerized deployment through Docker, ensuring scalability and consistent performance for users seeking to expedite their Global Entry enrollment process.
+        </p>{" "}
+      </div>
+    ),
+  },
+  {
     href: "https://github.com/everettsouthwick/amazon-auto-reload",
     title: "Amazon Auto Reload",
     description:
@@ -64,29 +87,6 @@ export const products = [
         </p>
         <p>
           Key features include browser visibility for monitoring operations, extensive configuration options, and cross-browser compatibility. The project is open-source and welcomes contributions for planned enhancements like automated testing, code refactoring, and scheduling capabilities.
-        </p>{" "}
-      </div>
-    ),
-  },
-  {
-    href: "https://www.goglobalentry.com",
-    title: "Go Global Entry",
-    description:
-      "A modern web application that allows users to fetch and secure Global Entry appointments through an intuitive front-end interface.",
-    thumbnail: "/images/go-global-entry-1.webp",
-    images: ["/images/go-global-entry-1.webp"],
-    stack: [".NET", "C#", "Node.js", "Next.js", "React", "TypeScript", "Azure", "Docker"],
-    slug: "go-global-entry",
-    content: (
-      <div>
-        <p>
-          Go Global Entry is a sophisticated web platform designed to help travelers secure earlier Global Entry appointments through a modern, user-friendly interface. The service continuously monitors the Trusted Traveler Program for new appointment openings, making the often frustrating process of finding available slots seamless and efficient.
-        </p>
-        <p>
-          The application features an intuitive dashboard with location filtering, real-time appointment availability, and instant notifications when earlier slots become available. Users can easily manage their appointment preferences and receive alerts when opportunities matching their criteria appear.
-        </p>
-        <p>
-          Built with a robust tech stack including .NET, C#, Node.js, Next.js, and React, Go Global Entry delivers a responsive and reliable experience. The platform is hosted on Azure with containerized deployment through Docker, ensuring scalability and consistent performance for users seeking to expedite their Global Entry enrollment process.
         </p>{" "}
       </div>
     ),
