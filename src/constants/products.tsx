@@ -69,24 +69,24 @@ export const products = [
     ),
   },
   {
-    href: "https://github.com/everettsouthwick/trusted-traveler-scheduler",
-    title: "Trusted Traveler Scheduler",
+    href: "https://www.goglobalentry.com",
+    title: "Go Global Entry",
     description:
-      "Automatically fetches and notifies you when new appointment dates are available for the Trusted Traveler Program.",
-    thumbnail: "/images/trusted-traveler-scheduler-1.webp",
-    images: ["/images/trusted-traveler-scheduler-1.webp"],
-    stack: ["Python", "Docker"],
-    slug: "trusted-traveler-scheduler",
+      "A modern web application that allows users to fetch and secure Global Entry appointments through an intuitive front-end interface.",
+    thumbnail: "/images/go-global-entry-1.webp",
+    images: ["/images/go-global-entry-1.webp"],
+    stack: [".NET", "C#", "Node.js", "Next.js", "React", "TypeScript", "Azure", "Docker"],
+    slug: "go-global-entry",
     content: (
       <div>
         <p>
-          Trusted Traveler Scheduler is a Python-based automation tool that helps users secure earlier appointments for Global Entry, NEXUS, SENTRI, or FAST programs by continuously monitoring the Trusted Traveler Program API for new openings.
+          Go Global Entry is a sophisticated web platform designed to help travelers secure earlier Global Entry appointments through a modern, user-friendly interface. The service continuously monitors the Trusted Traveler Program for new appointment openings, making the often frustrating process of finding available slots seamless and efficient.
         </p>
         <p>
-          The application features configurable location selection, customizable notification systems, and flexible appointment time filtering. Users can set their current appointment date and receive alerts when earlier slots become available within their preferred time windows.
+          The application features an intuitive dashboard with location filtering, real-time appointment availability, and instant notifications when earlier slots become available. Users can easily manage their appointment preferences and receive alerts when opportunities matching their criteria appear.
         </p>
         <p>
-          Built with Python 3.7+ and packaged as a Docker container for easy deployment, this tool offers command-line flexibility with optional configuration files. The project includes comprehensive documentation for both standard Python execution and containerized deployment options.
+          Built with a robust tech stack including .NET, C#, Node.js, Next.js, and React, Go Global Entry delivers a responsive and reliable experience. The platform is hosted on Azure with containerized deployment through Docker, ensuring scalability and consistent performance for users seeking to expedite their Global Entry enrollment process.
         </p>{" "}
       </div>
     ),
