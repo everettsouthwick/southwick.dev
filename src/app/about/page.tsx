@@ -12,11 +12,11 @@ import About from "@/components/About";
 export const metadata: Metadata = {
   title: "About | Everett Southwick",
   description:
-    "Learn about Everett Southwick, an experienced Principal Software and DevOps Engineer based in Tampa, FL. Discover my background, skills, and professional journey in software development and cloud architecture.",
-  keywords: "about Everett Southwick, software engineer background, principal developer experience, Tampa FL developer, software engineering career",
+    "Learn about Everett Southwick, an experienced Senior Software Engineer based in Tampa, FL. Discover my background, skills, and professional journey in software development and cloud architecture.",
+  keywords: "about Everett Southwick, software engineer background, senior developer experience, Tampa FL developer, software engineering career",
   openGraph: {
     title: "About Everett Southwick",
-    description: "Learn about Everett Southwick's background and experience as a Principal Software and DevOps Engineer.",
+    description: "Learn about Everett Southwick's background and experience as a Senior Software Engineer.",
     url: "https://southwick.dev/about",
     siteName: "Everett Southwick Portfolio",
     locale: "en_US",

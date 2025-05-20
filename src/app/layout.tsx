@@ -11,14 +11,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Everett Southwick - Principal Software Engineer",
+  title: "Everett Southwick - Senior Software Engineer",
   description:
-    "Experienced Principal Software and DevOps Engineer based in Tampa, FL. Specializing in modern web development, cloud architecture, and scalable solutions. View my portfolio of projects and technical expertise.",
-  keywords: "software engineer, principal developer, DevOps, Tampa FL, web development, cloud architecture, full-stack developer",
+    "Experienced Senior Software Engineer based in Tampa, FL. Specializing in modern web development, cloud architecture, and scalable solutions. View my portfolio of projects and technical expertise.",
+  keywords: "software engineer, senior developer, DevOps, Tampa FL, web development, cloud architecture, full-stack developer",
   authors: [{ name: "Everett Southwick" }],
   openGraph: {
-    title: "Everett Southwick - Principal Software Engineer",
-    description: "Experienced Principal Software and DevOps Engineer based in Tampa, FL. View my portfolio and technical expertise.",
+    title: "Everett Southwick - Senior Software Engineer",
+    description: "Experienced Senior Software Engineer based in Tampa, FL. View my portfolio and technical expertise.",
     url: "https://southwick.dev",
     siteName: "Everett Southwick Portfolio",
     locale: "en_US",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Everett Southwick - Principal Software Engineer",
-    description: "Principal Software and DevOps Engineer based in Tampa, FL.",
+    title: "Everett Southwick - Senior Software Engineer",
+    description: "Senior Software Engineer based in Tampa, FL.",
   },
   robots: {
     index: true,

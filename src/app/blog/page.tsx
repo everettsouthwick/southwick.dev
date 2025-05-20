@@ -10,7 +10,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog | Everett Southwick",
   description:
-    "Explore Everett Southwick's technical articles and insights on software development, DevOps, and modern web technologies. Sharing knowledge and experiences from the perspective of a principal software engineer.",
+    "Explore Everett Southwick's technical articles and insights on software development, DevOps, and modern web technologies. Sharing knowledge and experiences from the perspective of a senior software engineer.",
   keywords: "software engineering blog, technical articles, web development, DevOps, Tampa FL, coding tutorials, software architecture",
   authors: [{ name: "Everett Southwick" }],
   openGraph: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Blog | Everett Southwick",
-    description: "Technical articles and insights by principal software engineer Everett Southwick.",
+    description: "Technical articles and insights by senior software engineer Everett Southwick.",
   },
   robots: {
     index: true,

@@ -11,7 +11,7 @@ export default function Home() {
       <span className="text-4xl">👋</span>
       <Heading className="font-black">Hello there! I&apos;m Everett</Heading>
       <Paragraph className="max-w-xl mt-4">
-        I&apos;m a Principal Software and DevOps Engineer that loves{" "}
+        I&apos;m a Senior Software Engineer that loves{" "}
         <Highlight>building solutions</Highlight> and cloud applications that help people
       </Paragraph>
       <Paragraph className="max-w-xl mt-4">

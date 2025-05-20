@@ -8,12 +8,12 @@ import { IconMail } from "@tabler/icons-react";
 export const metadata: Metadata = {
   title: "Contact | Everett Southwick",
   description:
-    "Get in touch with Everett Southwick, Principal Software and DevOps Engineer based in Tampa, FL. Reach out for project inquiries, consulting services, or collaboration opportunities.",
+    "Get in touch with Everett Southwick, Senior Software Engineer based in Tampa, FL. Reach out for project inquiries, consulting services, or collaboration opportunities.",
   keywords: "contact Everett Southwick, software engineer contact, Tampa FL developer, project inquiries, consulting services, collaboration opportunities",
   authors: [{ name: "Everett Southwick" }],
   openGraph: {
     title: "Contact | Everett Southwick",
-    description: "Get in touch with Everett Southwick, Principal Software and DevOps Engineer based in Tampa, FL.",
+    description: "Get in touch with Everett Southwick, Senior Software Engineer based in Tampa, FL.",
     url: "https://southwick.dev/contact",
     siteName: "Everett Southwick Portfolio",
     locale: "en_US",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Contact | Everett Southwick",
-    description: "Get in touch with Everett Southwick, Principal Software Engineer based in Tampa, FL.",
+    description: "Get in touch with Everett Southwick, Senior Software Engineer based in Tampa, FL.",
   },
   robots: {
     index: true,
