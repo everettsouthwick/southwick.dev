@@ -48,7 +48,7 @@ export const timeline = [
     ],
   },
   {
-    company: "AMC Theatres",
+    company: "AMC Theatres (via Adaptive Solutions Group)",
     title: "Software Engineer III",
     date: "2018 - 2019",
     description: "Kansas City, MO",
