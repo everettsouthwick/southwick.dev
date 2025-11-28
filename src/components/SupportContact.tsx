@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 
 interface FormField {
@@ -7,7 +8,6 @@ interface FormField {
 }
 
 interface FormState {
-  name: FormField;
   email: FormField;
   message: FormField;
 }
@@ -19,10 +19,6 @@ declare global {
 }
 
 const defaultFormState: FormState = {
-  name: {
-    value: "",
-    error: "",
-  },
   email: {
     value: "",
     error: "",
@@ -33,7 +29,7 @@ const defaultFormState: FormState = {
   },
 };
 
-export const Contact = () => {
+export function SupportContact() {
   const [formData, setFormData] = useState<FormState>(defaultFormState);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<{
@@ -69,39 +65,35 @@ export const Contact = () => {
 
   const validateForm = (): boolean => {
     let isValid = true;
-    const newFormData = { ...formData };
-
-    if (!formData.name.value.trim()) {
-      newFormData.name.error = "Name is required";
-      isValid = false;
-    }
+    const nextFormData: FormState = {
+      email: { ...formData.email, error: "" },
+      message: { ...formData.message, error: "" },
+    };
 
     if (!formData.email.value.trim()) {
-      newFormData.email.error = "Email is required";
+      nextFormData.email.error = "Email is required";
       isValid = false;
     } else {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailRegex.test(formData.email.value)) {
-        newFormData.email.error = "Please enter a valid email address";
+        nextFormData.email.error = "Please enter a valid email address";
         isValid = false;
       }
     }
 
     if (!formData.message.value.trim()) {
-      newFormData.message.error = "Message is required";
+      nextFormData.message.error = "Message is required";
       isValid = false;
     }
 
-    setFormData(newFormData);
+    setFormData(nextFormData);
     return isValid;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+
+    if (!validateForm()) return;
 
     if (!turnstileToken) {
       setSubmitStatus({
@@ -115,13 +107,12 @@ export const Contact = () => {
     setSubmitStatus({});
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api/support-contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: formData.name.value,
           email: formData.email.value,
           message: formData.message.value,
           turnstileToken,
@@ -133,17 +124,17 @@ export const Contact = () => {
       if (response.ok) {
         setSubmitStatus({
           success: true,
-          message: "Message sent successfully! I'll get back to you soon.",
+          message: "Support request sent successfully. We will be in touch soon.",
         });
         setFormData(defaultFormState);
         setTurnstileToken("");
       } else {
         setSubmitStatus({
           success: false,
-          message: data.error || "Failed to send message. Please try again.",
+          message: data.error || "Failed to send support request. Please try again.",
         });
       }
-    } catch (error) {
+    } catch (_error) {
       setSubmitStatus({
         success: false,
         message: "An error occurred. Please try again later.",
@@ -153,69 +144,49 @@ export const Contact = () => {
     }
   };
 
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const isSubmitDisabled =
+    isSubmitting || !turnstileReady || !siteKey || !turnstileToken;
+
   return (
     <form className="form" onSubmit={handleSubmit}>
-      <div className="flex flex-col md:flex-row justify-between gap-5">
-        <div className="w-full">
-          <input
-            type="text"
-            placeholder="Your Name"
-            className={`bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full ${
-              formData.name.error ? "border border-red-500" : ""
-            }`}
-            value={formData.name.value}
-            onChange={(e) => {
-              setFormData({
-                ...formData,
-                name: {
-                  value: e.target.value,
-                  error: "",
-                },
-              });
-            }}
-            disabled={isSubmitting}
-          />
-          {formData.name.error && (
-            <p className="text-red-500 text-xs mt-1">{formData.name.error}</p>
-          )}
-        </div>
-        <div className="w-full">
-          <input
-            type="email"
-            placeholder="Your email address"
-            className={`bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full ${
-              formData.email.error ? "border border-red-500" : ""
-            }`}
-            value={formData.email.value}
-            onChange={(e) => {
-              setFormData({
-                ...formData,
-                email: {
-                  value: e.target.value,
-                  error: "",
-                },
-              });
-            }}
-            disabled={isSubmitting}
-          />
-          {formData.email.error && (
-            <p className="text-red-500 text-xs mt-1">{formData.email.error}</p>
-          )}
-        </div>
+      <div className="w-full">
+        <input
+          type="email"
+          placeholder="Your email address"
+          className={`bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full ${
+            formData.email.error ? "border border-red-500" : ""
+          }`}
+          value={formData.email.value}
+          onChange={(event) => {
+            setFormData({
+              ...formData,
+              email: {
+                value: event.target.value,
+                error: "",
+              },
+            });
+          }}
+          disabled={isSubmitting}
+        />
+        {formData.email.error && (
+          <p className="text-red-500 text-xs mt-1">{formData.email.error}</p>
+        )}
       </div>
+
       <div>
         <textarea
-          placeholder="Your Message"
-          rows={10}
+          placeholder="How can SW Software help you?"
+          rows={8}
           className={`bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 mt-4 py-2 rounded-md text-sm text-neutral-700 w-full ${
             formData.message.error ? "border border-red-500" : ""
           }`}
           value={formData.message.value}
-          onChange={(e) => {
+          onChange={(event) => {
             setFormData({
               ...formData,
               message: {
-                value: e.target.value,
+                value: event.target.value,
                 error: "",
               },
             });
@@ -228,10 +199,10 @@ export const Contact = () => {
       </div>
 
       <div className="mt-4">
-        {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? (
+        {siteKey ? (
           <div
             className="cf-turnstile"
-            data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+            data-sitekey={siteKey}
             data-callback="onTurnstileSuccess"
           />
         ) : (
@@ -252,17 +223,20 @@ export const Contact = () => {
           {submitStatus.message}
         </div>
       )}
+
       <button
         className={`w-full px-2 py-2 mt-4 rounded-md font-bold transition-colors ${
-          isSubmitting || !turnstileReady || !process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || !turnstileToken
+          isSubmitDisabled
             ? "bg-neutral-300 text-neutral-500 cursor-not-allowed"
             : "bg-neutral-100 text-neutral-500 hover:bg-neutral-200"
         }`}
         type="submit"
-        disabled={isSubmitting || !turnstileReady || !process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || !turnstileToken}
+        disabled={isSubmitDisabled}
       >
-        {isSubmitting ? "Sending..." : "Submit"}
+        {isSubmitting ? "Sending..." : "Submit support request"}
       </button>
     </form>
   );
-};
+}
+
+

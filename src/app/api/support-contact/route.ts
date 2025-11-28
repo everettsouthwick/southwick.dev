@@ -1,34 +1,46 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-// Email validation regex
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-async function verifyTurnstileToken(token: string, remoteip?: string): Promise<boolean> {
+interface SupportBody {
+  email?: string;
+  message?: string;
+  turnstileToken?: string;
+}
+
+async function verifyTurnstileToken(
+  token: string,
+  remoteIp: string | null,
+): Promise<boolean> {
   const secretKey = process.env.TURNSTILE_SECRET_KEY;
+
   if (!secretKey) {
-    console.error("TURNSTILE_SECRET_KEY is not set");
+    console.error("TURNSTILE_SECRET_KEY is not configured");
     return false;
   }
+
+  const formData = new URLSearchParams();
+  formData.append("secret", secretKey);
+  formData.append("response", token);
+  if (remoteIp) formData.append("remoteip", remoteIp);
 
   try {
     const response = await fetch(
       "https://challenges.cloudflare.com/turnstile/v0/siteverify",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          secret: secretKey,
-          response: token,
-          remoteip,
-        }),
+        body: formData,
       },
     );
 
-    const data = await response.json();
-    return data.success === true;
+    if (!response.ok) {
+      console.error("Turnstile verification failed with non-200 response");
+      return false;
+    }
+
+    const data = (await response.json()) as { success?: boolean };
+    return !!data.success;
   } catch (error) {
     console.error("Error verifying Turnstile token:", error);
     return false;
@@ -37,47 +49,36 @@ async function verifyTurnstileToken(token: string, remoteip?: string): Promise<b
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
-    const { name, email, message, turnstileToken } = body;
+    const body = (await request.json()) as SupportBody;
+    const { email, message, turnstileToken } = body;
 
-    // Check for required fields
-    if (!name || !email || !message) {
+    if (!email || !message || !turnstileToken) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    // Validate email format
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: "Please enter a valid email address" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
-    // Verify Turnstile token
-    if (!turnstileToken) {
+    const ipHeader =
+      request.headers.get("CF-Connecting-IP") ||
+      request.headers.get("x-forwarded-for");
+    const remoteIp = ipHeader?.split(",")[0].trim() || null;
+
+    const isValid = await verifyTurnstileToken(turnstileToken, remoteIp);
+    if (!isValid) {
       return NextResponse.json(
-        { error: "Verification challenge is required" },
-        { status: 400 }
+        { error: "Verification failed. Please refresh and try again." },
+        { status: 400 },
       );
     }
 
-    const clientIp =
-      request.headers.get("x-forwarded-for")?.split(",")[0] ||
-      request.headers.get("x-real-ip") ||
-      undefined;
-
-    const isValidToken = await verifyTurnstileToken(turnstileToken, clientIp);
-    if (!isValidToken) {
-      return NextResponse.json(
-        { error: "Verification challenge failed. Please try again." },
-        { status: 400 }
-      );
-    }
-
-    // Create transporter
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -87,19 +88,17 @@ export async function POST(request: Request) {
     });
 
     const emailContent = `
-      Name: ${name}
       Email: ${email}
       Message: ${message}
     `;
 
     const mailOptions = {
-      from: "everett@southwick.dev",
+      from: "support@southwick.dev",
       to: "everett@southwick.dev",
-      subject: `New Contact Form Submission from ${name}`,
+      subject: `SW Software Support Request from ${email}`,
       text: emailContent,
       html: `
-        <h2>southwick.dev - New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
+        <h2>SW Software LLC - New Support Request</h2>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>")}</p>
@@ -111,10 +110,12 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error handling support contact:", error);
     return NextResponse.json(
-      { error: "Failed to send email" },
-      { status: 500 }
+      { error: "Failed to send support request" },
+      { status: 500 },
     );
   }
 }
+
+
