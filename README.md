@@ -1,11 +1,7 @@
-## Sidefolio - Portfolio website template
+## Author
 
-As seen on [Aceternity UI](https://ui.aceternity.com/templtes/sidefolio)
+**Everett Southwick** - [southwick.dev](https://southwick.dev)
 
-## Built with
-- Next.js
-- Tailwindcss
-- Framer motion
-- MDX
-
-Checkout all the templates at [Aceternity UI](https://ui.aceternity.com/templates)
+Other projects:
+- [Go Global Entry](https://www.goglobalentry.com) - Find earlier Global Entry appointments
+- [Stepio](https://www.getstep.io) - Compete on daily step goals with friends
