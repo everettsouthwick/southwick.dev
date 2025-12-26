@@ -21,6 +21,7 @@ export const products = [
         </p>{" "}
       </div>
     ),
+    ctaText: "Access Control for Your Community",
   },
   {
     href: "https://www.getseren.com/",
@@ -44,6 +45,7 @@ export const products = [
         </p>
       </div>
     ),
+    ctaText: "Search Your Documents with AI",
   },
   {
     href: "https://www.goglobalentry.com",
@@ -67,6 +69,31 @@ export const products = [
         </p>{" "}
       </div>
     ),
+    ctaText: "Find Global Entry Appointments",
+  },
+  {
+    href: "https://www.getstep.io",
+    title: "Stepio",
+    description:
+      "The social step tracking app that makes walking fun. Track steps together, compete on leaderboards, and build daily streaks.",
+    thumbnail: "/images/get-stepio-1.webp",
+    images: ["/images/get-stepio-1.webp"],
+    stack: ["Node.js", "React", "React Native", "TypeScript", "Azure", "iOS", "Android"],
+    slug: "stepio",
+    content: (
+      <div>
+        <p>
+          Stepio is a social step-tracking application that transforms daily walking into an engaging, shared experience. By syncing automatically with Apple Health and Google Fit, it eliminates manual entry and lets users focus on moving and connecting with friends.
+        </p>
+        <p>
+          The platform features unlimited social groups with easy invite codes, real-time leaderboards, and dual competition modes. Users can choose VERSUS mode for individual rankings or TEAM mode to collaborate toward collective goals, making fitness both competitive and community-driven.
+        </p>
+        <p>
+          Built with a modern stack including React Native for cross-platform mobile excellence and Azure for scalable backend services, Stepio provides a seamless experience across iOS and Android. Its privacy-first design ensures that activity is only visible within trusted groups, while gamification features like daily streaks keep users motivated to stay active.
+        </p>{" "}
+      </div>
+    ),
+    ctaText: "Track Steps with Friends",
   },
   {
     href: "https://github.com/everettsouthwick/amazon-auto-reload",
@@ -90,6 +117,7 @@ export const products = [
         </p>{" "}
       </div>
     ),
+    ctaText: "Automate Gift Card Reloads",
   },
   {
     href: "https://github.com/everettsouthwick/Eraserr",
@@ -113,6 +141,7 @@ export const products = [
         </p>{" "}
       </div>
     ),
+    ctaText: "Clean Your Plex Library",
   },
   {
     href: "https://github.com/everettsouthwick/vxThreads",
@@ -136,6 +165,7 @@ export const products = [
         </p>{" "}
       </div>
     ),
+    ctaText: "Embed Threads Posts Seamlessly",
   },
   {
     href: "https://github.com/everettsouthwick/embetter",
@@ -159,5 +189,6 @@ export const products = [
         </p>{" "}
       </div>
     ),
+    ctaText: "Improve Discord Social Embeds",
   },
 ];
