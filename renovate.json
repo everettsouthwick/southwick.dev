@@ -5,4 +5,5 @@
         ":automergeStableNonMajor",
         "schedule:nonOfficeHours"
     ],
+    "minimumReleaseAge": "7 days"
 }
