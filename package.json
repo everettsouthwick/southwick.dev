@@ -25,7 +25,7 @@
     "framer-motion": "^10.16.1",
     "next": "13.5.11",
     "nodemailer": "^6.10.1",
-    "postcss": "8.4.31",
+    "postcss": "8.5.23",
     "prismjs": "^1.29.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
